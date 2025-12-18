@@ -94,7 +94,7 @@ input {
   justify-content: flex-start;
   gap: 60px;
   padding: 10px;
-  background-color: rgb(195, 130, 208);
+  background-color: rgb(0, 0, 0);
 }
 
 .boardButtons {
