@@ -11,4 +11,4 @@ Classic Tic Tac Toe game built with React.
 
 ## Live Version
 
-https://valimarin.github.io/tic-tac-toe
+https://valimarin.github.io/Tic-tac-toe
