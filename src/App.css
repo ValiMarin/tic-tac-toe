@@ -31,7 +31,7 @@ header {
   font-weight: 800;
   font-size: clamp(16px, 5vw, 80px);
   color: rgb(214, 96, 54);
-  -webkit-text-stroke: 4px rgb(0, 0, 0);
+  -webkit-text-stroke: 0.06em rgb(0, 0, 0);
 }
 
 .main {
@@ -54,7 +54,7 @@ input {
   text-align: center;
   font-size: clamp(16px, 5vw, 60px);
   color: rgb(255, 255, 255);
-  -webkit-text-stroke: 3px rgb(0, 0, 0);
+  -webkit-text-stroke: 0.06em rgb(0, 0, 0);
 }
 
 .player {
@@ -146,7 +146,7 @@ label {
   font-size: min(3.5vw, 3.5vh);
   color: rgb(224, 190, 68);
   background-color: rgba(0, 0, 0, 0.292);
-  -webkit-text-stroke: 3px black;
+  -webkit-text-stroke: 0.06em black;
   padding: 8px;
 }
 
