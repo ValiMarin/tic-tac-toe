@@ -1,38 +1,201 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  border: 5px solid rgb(255, 254, 190);
+  background-color: rgb(49, 69, 96);
+}
+
 .App {
   text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
   min-height: 100vh;
+  width: 100vw;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: flex-start;
+  font-family: Arial, sans-serif;
+  padding-top: 10px;
+  gap: 2vh;
+  overflow: hidden;
+}
+
+header {
+  font-weight: 800;
+  font-size: clamp(16px, 5vw, 80px);
+  color: rgb(214, 96, 54);
+  -webkit-text-stroke: 4px rgb(0, 0, 0);
+}
+
+.main {
+  width: 90%;
+  height: 90%;
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  gap: 4vw;
+  padding: 20px;
 }
 
-.App-link {
-  color: #61dafb;
+input {
+  max-width: 300px;
+  font-weight: 800;
+  background-color: transparent;
+  outline: none;
+  border: none;
+  text-align: center;
+  font-size: clamp(16px, 5vw, 60px);
+  color: rgb(255, 255, 255);
+  -webkit-text-stroke: 3px rgb(0, 0, 0);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.player {
+  width: 30%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15vh;
+  padding: 25px;
+  transition: opacity 0.3s ease;
+  transition: background-color 0.3s ease;
+}
+
+.backgroundPlayer1.inactive {
+  background-color: rgba(79, 194, 108, 0.256);
+}
+
+.backgroundPlayer2.inactive {
+  background-color: rgba(194, 79, 79, 0.44);
+}
+
+.backgroundPlayer1 {
+  background-color: rgb(79, 194, 108);
+}
+
+.backgroundPlayer2 {
+  background-color: rgb(194, 79, 79);
+}
+
+.board {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 60px;
+  padding: 10px;
+  background-color: rgb(195, 130, 208);
+}
+
+.boardButtons {
+  position: relative;
+  --line-x: 50%;
+  --line-y: 50%;
+  --rotate: 0deg;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  aspect-ratio: 1;
+  width: 100%;
+  max-width: 700px;
+  overflow: hidden;
+}
+
+.boardButtons::after {
+  content: "";
+  position: absolute;
+  top: var(--line-y);
+  left: var(--line-x);
+  width: 120%;
+  height: 10px;
+  background: red;
+  opacity: var(--line-visible, 0);
+  transform: translate(-50%, -50%) rotate(var(--rotate));
+  pointer-events: none;
+}
+
+.boardButton {
+  background-color: rgba(0, 0, 0, 0.178);
+  border: none;
+  font-size: min(8vw, 8vh);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 1;
+}
+
+.borderRight {
+  border-right: 7px solid rgb(0, 0, 0);
+}
+
+.borderBottom {
+  border-bottom: 7px solid rgb(0, 0, 0);
+}
+
+label {
+  font-weight: 800;
+  font-size: min(3.5vw, 3.5vh);
+  color: rgb(224, 190, 68);
+  background-color: rgba(0, 0, 0, 0.292);
+  -webkit-text-stroke: 3px black;
+  padding: 8px;
+}
+
+p {
+  font-weight: 800;
+  font-size: clamp(16px, 5vw, 40px);
+}
+
+button:disabled {
+  opacity: 1;
+  color: inherit;
+}
+
+.resetBtn {
+  background-color: rgba(255, 255, 255, 0.348);
+  font-size: min(3vw, 3vh);
+  font-weight: 700;
+  padding: 7px;
+  border: none;
+  cursor: pointer;
+}
+
+.playerWonBackground {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.303);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.playerWon {
+  width: 30%;
+  height: 20%;
+  background-color: #adadad;
+  border: 20px solid rgba(0, 0, 0, 0.397);
+  padding: 10px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.winner {
+  font-size: clamp(16px, 5vw, 60px);
+}
+
+.invisiblePanel {
+  position: fixed;
+  inset: 0;
 }
