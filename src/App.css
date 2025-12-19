@@ -116,7 +116,7 @@ input {
   top: var(--line-y);
   left: var(--line-x);
   width: 120%;
-  height: 10px;
+  height: clamp(2px, 0.5vw, 10px);
   background: red;
   opacity: var(--line-visible, 0);
   transform: translate(-50%, -50%) rotate(var(--rotate));
@@ -134,11 +134,11 @@ input {
 }
 
 .borderRight {
-  border-right: 7px solid rgb(0, 0, 0);
+  border-right: clamp(2px, 0.5vw, 10px) solid rgb(0, 0, 0);
 }
 
 .borderBottom {
-  border-bottom: 7px solid rgb(0, 0, 0);
+  border-bottom: clamp(2px, 0.5vw, 10px) solid rgb(0, 0, 0);
 }
 
 label {
